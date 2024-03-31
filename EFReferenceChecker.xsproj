@@ -21,36 +21,89 @@
   </PropertyGroup>
   <Import Project="$(XSharpMsBuildDir)\XSharp.targets" />
   <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Data.Desktop.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.Data.Desktop.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Data.Desktop.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Data.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.Data.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Data.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Drawing.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.Drawing.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Drawing.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Utils.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.Utils.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Utils.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraBars.v23.2</Name>
+      <AssemblyName>DevExpress.XtraBars.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraBars.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraEditors.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.XtraEditors.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraEditors.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Configuration</Name>
+      <AssemblyName>System.Configuration.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainForm.Designer.prg">
+      <DependentUpon>MainForm.prg</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.prg">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.prg">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Form1.prg">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.prg">
-      <DependentUpon>Form1.prg</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.prg">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Properties\AssemblyInfo.prg" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.prg</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PreBuildEvent />

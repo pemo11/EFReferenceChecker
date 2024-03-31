@@ -1,20 +1,29 @@
-﻿using System
-using System.Collections.Generic
-using System.ComponentModel
-using System.Data
-using System.Drawing
+﻿USING System
+USING System.Collections.Generic
+USING System.Configuration
+USING System.Data
+USING System.Drawing
 
-using System.Text
+USING System.Text
 
-using System.Windows.Forms
+USING System.Windows.Forms
 
-begin namespace EFReferenceChecker
+BEGIN NAMESPACE EFReferenceChecker
 
-    public partial class MainForm inherit System.Windows.Forms.Form
-
-        public constructor() strict
+PUBLIC PARTIAL CLASS MainForm INHERIT Form
+    PRIVATE binPath AS STRING
+    
+    PRIVATE METHOD ReadConfigData() AS VOID
+        SELF:binPath := ConfigurationManager.AppSettings["binPath"]  
+        SELF:lblBinPath:Text := SELF:binPath
+        
+        PUBLIC CONSTRUCTOR() STRICT
             InitializeComponent()
+            ReadConfigData()
             return
         end constructor
-    end class
-end namespace
+        PRIVATE METHOD btnChooseBinFolder_Click(sender AS System.Object, e AS System.EventArgs) AS VOID STRICT
+            RETURN
+        END METHOD
+    END CLASS 
+END NAMESPACE
