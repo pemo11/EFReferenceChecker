@@ -10,8 +10,8 @@ BEGIN NAMESPACE EFReferenceChecker
     CLASS AssemblyCheck
         PROPERTY Id AS INT AUTO
         PROPERTY Name AS STRING AUTO
-        PROPERTY VersionDetected AS STRING AUTO
         PROPERTY VersionNeeded AS STRING AUTO
+        PROPERTY VersionDetected AS STRING AUTO
 	END CLASS
 
 END NAMESPACE
