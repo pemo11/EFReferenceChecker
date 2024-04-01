@@ -1,0 +1,1738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(XSharpMsBuildDir)\XSharp.Default.props" />
+  <PropertyGroup>
+    <Name>EUREKAFach</Name>
+    <ProjectGuid>1a26c577-b2fc-4a08-8ecb-79e8c35eec65</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EurekaFach</RootNamespace>
+    <AssemblyName>EurekaFach</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <Nologo>true</Nologo>
+    <GenerateFullPaths>true</GenerateFullPaths>
+    <Dialect>VO</Dialect>
+    <vo15>false</vo15>
+    <OutputName>Kernanwendung</OutputName>
+    <NamedArgs>False</NamedArgs>
+    <StartupObject />
+    <ApplicationIcon>LogoEF.ico</ApplicationIcon>
+    <VulcanCompatibleResources>False</VulcanCompatibleResources>
+    <TargetFrameworkProfile />
+    <Nostandarddefs>false</Nostandarddefs>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'" Label="Configuration">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <EmitDebugInformation>true</EmitDebugInformation>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <DebuggerCommand>$(TargetPath)</DebuggerCommand>
+    <DebuggerCommandArguments>"C:\eureka\programm\eureka.ini" "" ""</DebuggerCommandArguments>
+    <DebuggerWorkingDirectory />
+    <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>$(ProjectDir)$(Configuration)\obj\</IntermediateOutputPath>
+    <UseSharedCompilation>true</UseSharedCompilation>
+    <DisabledWarnings>XS0251;XS1690</DisabledWarnings>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile />
+    <CommandLineOption />
+    <PPO>false</PPO>
+    <Prefer32Bit>True</Prefer32Bit>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <DocumentationFile>EurekaFach.Xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'" Label="Configuration">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <EmitDebugInformation>false</EmitDebugInformation>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(XSharpMsBuildDir)\XSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.2604.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+      <Name>Devart.Data</Name>
+      <AssemblyName>Devart.Data.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Devart.Data.PostgreSql, Version=7.20.1812.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+      <Name>Devart.Data.PostgreSql</Name>
+      <AssemblyName>Devart.Data.PostgreSql.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Charts.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Charts.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Data.Desktop.v23.2</Name>
+      <AssemblyName>DevExpress.Data.Desktop.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Data.v23.2</Name>
+      <AssemblyName>DevExpress.Data.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Diagram.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Diagram.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Docs.v23.2</Name>
+      <AssemblyName>DevExpress.Docs.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Drawing.v23.2</Name>
+      <AssemblyName>DevExpress.Drawing.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Office.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Office.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Pdf.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Pdf.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v23.2.Drawing, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Pdf.v23.2.Drawing</Name>
+      <AssemblyName>DevExpress.Pdf.v23.2.Drawing.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Printing.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Printing.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.RichEdit.v23.2.Core</Name>
+      <AssemblyName>DevExpress.RichEdit.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v23.2.Export, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.RichEdit.v23.2.Export</Name>
+      <AssemblyName>DevExpress.RichEdit.v23.2.Export.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Sparkline.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Sparkline.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Spreadsheet.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Spreadsheet.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Utils.v23.2</Name>
+      <AssemblyName>DevExpress.Utils.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraBars.v23.2</Name>
+      <AssemblyName>DevExpress.XtraBars.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraCharts.v23.2</Name>
+      <AssemblyName>DevExpress.XtraCharts.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v23.2.UI, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraCharts.v23.2.UI</Name>
+      <AssemblyName>DevExpress.XtraCharts.v23.2.UI.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraDiagram.v23.2</Name>
+      <AssemblyName>DevExpress.XtraDiagram.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraEditors.v23.2</Name>
+      <AssemblyName>DevExpress.XtraEditors.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraGrid.v23.2</Name>
+      <AssemblyName>DevExpress.XtraGrid.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraLayout.v23.2</Name>
+      <AssemblyName>DevExpress.XtraLayout.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraPdfViewer.v23.2</Name>
+      <AssemblyName>DevExpress.XtraPdfViewer.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraPrinting.v23.2</Name>
+      <AssemblyName>DevExpress.XtraPrinting.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraRichEdit.v23.2</Name>
+      <AssemblyName>DevExpress.XtraRichEdit.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraScheduler.v23.2</Name>
+      <AssemblyName>DevExpress.XtraScheduler.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraScheduler.v23.2.Core</Name>
+      <AssemblyName>DevExpress.XtraScheduler.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2.Core.Desktop, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraScheduler.v23.2.Core.Desktop</Name>
+      <AssemblyName>DevExpress.XtraScheduler.v23.2.Core.Desktop.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraSpreadsheet.v23.2</Name>
+      <AssemblyName>DevExpress.XtraSpreadsheet.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraTreeList.v23.2</Name>
+      <AssemblyName>DevExpress.XtraTreeList.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraVerticalGrid.v23.2</Name>
+      <AssemblyName>DevExpress.XtraVerticalGrid.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="E2A.Utils.WCF, Version=22.6.3.46907, Culture=neutral, PublicKeyToken=b1ec6472e11fa556">
+      <Name>E2A.Utils.WCF</Name>
+      <AssemblyName>E2A.Utils.WCF.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>ReferenzDateien\E2A.Utils.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Name>Microsoft.CSharp</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <Name>Microsoft.Extensions.Logging.Abstractions</Name>
+      <AssemblyName>Microsoft.Extensions.Logging.Abstractions.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\GitRepos\RuntimeDateien\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Name>Microsoft.Office.Interop.Excel</Name>
+      <AssemblyName>Microsoft.Office.Interop.Excel.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Name>Microsoft.Office.Interop.Outlook</Name>
+      <AssemblyName>Microsoft.Office.Interop.Outlook.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\RuntimeDateien\Microsoft.Office.Interop\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Name>Microsoft.Office.Interop.Word</Name>
+      <AssemblyName>Microsoft.Office.Interop.Word.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c">
+      <Name>NLog</Name>
+      <AssemblyName>NLog.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\RuntimeDateien\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Name>office</Name>
+      <AssemblyName>office.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342">
+      <Name>Oracle.ManagedDataAccess</Name>
+      <AssemblyName>Oracle.ManagedDataAccess.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Patagames.Ocr, Version=4.6.2.472, Culture=neutral, PublicKeyToken=be14d8e1fe46e570">
+      <Name>Patagames.Ocr</Name>
+      <AssemblyName>Patagames.Ocr.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\..\EurekaFach\Test-Projekte\OCR\Patagames.Ocr.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <Name>System.Buffers</Name>
+      <AssemblyName>System.Buffers.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Name>System.Configuration</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.IdentityModel</Name>
+      <AssemblyName>System.IdentityModel.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <Name>System.IO.Compression</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.IO.Compression.FileSystem</Name>
+      <AssemblyName>System.IO.Compression.FileSystem.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <Name>System.Memory</Name>
+      <AssemblyName>System.Memory.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Net.Http</Name>
+      <AssemblyName>System.Net.Http.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <Name>System.Numerics</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.Numerics.dll</AssemblyName>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Numerics.Vectors</Name>
+      <AssemblyName>System.Numerics.Vectors.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Runtime.CompilerServices.Unsafe</Name>
+      <AssemblyName>System.Runtime.CompilerServices.Unsafe.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Name>System.Runtime.Serialization</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Name>System.ServiceModel</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Speech, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>System.Speech</Name>
+      <AssemblyName>System.Speech.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Name>System.Transactions</Name>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Web</Name>
+      <AssemblyName>System.Web.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Web.Services</Name>
+      <AssemblyName>System.Web.Services.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="TXDocumentServer, Version=26.0.1200.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXDocumentServer</Name>
+      <AssemblyName>TXDocumentServer.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXDocumentServer.Windows.Forms, Version=26.0.900.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXDocumentServer.Windows.Forms</Name>
+      <AssemblyName>TXDocumentServer.Windows.Forms.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXDrawing, Version=25.0.300.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXDrawing</Name>
+      <AssemblyName>TXDrawing.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXDrawing.Windows.Forms, Version=25.0.300.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXDrawing.Windows.Forms</Name>
+      <AssemblyName>TXDrawing.Windows.Forms.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXTextControl, Version=26.0.1900.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXTextControl</Name>
+      <AssemblyName>TXTextControl.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXTextControl.Windows.Forms, Version=26.0.1100.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Name>TXTextControl.Windows.Forms</Name>
+      <AssemblyName>TXTextControl.Windows.Forms.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VORDDClasses, Version=2.6.0.0, Culture=neutral, PublicKeyToken=a967d8055360a7b9">
+      <Name>VORDDClasses</Name>
+      <AssemblyName>VORDDClasses.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VOSystemClasses, Version=2.6.0.0, Culture=neutral, PublicKeyToken=a967d8055360a7b9">
+      <Name>VOSystemClasses</Name>
+      <AssemblyName>VOSystemClasses.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>WindowsBase</Name>
+      <AssemblyName>WindowsBase.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="XSharp.Core, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.Core</Name>
+      <AssemblyName>XSharp.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XSharp.Rdd, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.Rdd</Name>
+      <AssemblyName>XSharp.Rdd.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XSharp.RT, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.RT</Name>
+      <AssemblyName>XSharp.RT.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XSharp.VO, Version=2.6.0.0, Culture=neutral, PublicKeyToken=ed555a0467764586">
+      <Name>XSharp.VO</Name>
+      <AssemblyName>XSharp.VO.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator\AdminDokumenteLoeschen.prg" />
+    <Compile Include="Administrator\Aktenzeichenstamm.prg" />
+    <Compile Include="Administrator\ComboboxItem2.prg" />
+    <Compile Include="Administrator\EingabeDerVerteilung.prg" />
+    <Compile Include="Administrator\Gerichtsdaten.prg" />
+    <Compile Include="Administrator\IntegrationDescriptionTypeConverter.prg" />
+    <Compile Include="Administrator\Poolingliste.prg" />
+    <Compile Include="Administrator\StammdatemModell.prg" />
+    <Compile Include="Administrator\Stammdaten.prg" />
+    <Compile Include="Administrator\StammdatenPropertyDescriptor.prg" />
+    <Compile Include="Administrator\VerteilungNachEndziffer.prg" />
+    <Compile Include="Adressen\AdrAnsprechpartner.prg" />
+    <Compile Include="Adressen\AdrEFNR.prg" />
+    <Compile Include="Adressen\Adresseingabe.prg" />
+    <Compile Include="Adressen\Adressen.prg" />
+    <Compile Include="Adressen\Adressfunktionen.prg" />
+    <Compile Include="Adressen\AdrKonto.prg" />
+    <Compile Include="Adressen\AdrPost.prg" />
+    <Compile Include="Adressen\AdrSV.prg" />
+    <Compile Include="Adressen\AdrVerfahren.prg" />
+    <Compile Include="Adressen\AdrVollmEingabe.prg" />
+    <Compile Include="Adressen\Postanschrift.prg" />
+    <Compile Include="Adressen\VerfahrenDerAdresse.prg" />
+    <Compile Include="Adressen\Vollmachten.prg" />
+    <Compile Include="Aktenmaske\AdressenZumVerfahren.prg" />
+    <Compile Include="Aktenmaske\AdresseZumVerfahrenNeuZuordnen.prg" />
+    <Compile Include="Aktenmaske\AktenbockSortierung.prg" />
+    <Compile Include="Aktenmaske\AktenKosten.prg" />
+    <Compile Include="Aktenmaske\AktenMethoden.prg" />
+    <Compile Include="Aktenmaske\AktenErledigungen.prg" />
+    <Compile Include="Aktenmaske\Aktenmaske.prg" />
+    <Compile Include="Aktenmaske\AktenMethodenZweiteInstanz.prg" />
+    <Compile Include="Aktenmaske\AktenNacherfassen.prg" />
+    <Compile Include="Aktenmaske\AktenNeuAnlage.prg" />
+    <Compile Include="Aktenmaske\AktenNeuanlageMassenverfahren.prg" />
+    <Compile Include="Aktenmaske\AktenNeuAnlageSGB.prg" />
+    <Compile Include="Aktenmaske\AktenParteiart.prg" />
+    <Compile Include="Aktenmaske\AktenSchreibwerk.prg" />
+    <Compile Include="Aktenmaske\AktenSchreibwerkGSW.prg" />
+    <Compile Include="Aktenmaske\AktenSchreibwerkKSW.prg" />
+    <Compile Include="Aktenmaske\Aktenstandort.prg" />
+    <Compile Include="Aktenmaske\AktenVerfahrenAnlegen.prg" />
+    <Compile Include="Aktenmaske\Aktenzusatzdaten.prg" />
+    <Compile Include="Aktenmaske\Akten_eAkte.prg" />
+    <Compile Include="Aktenmaske\AktSoDatWin.prg" />
+    <Compile Include="Aktenmaske\AufgabenAnzeige.prg" />
+    <Compile Include="Aktenmaske\AufgabenEingabe.prg" />
+    <Compile Include="Aktenmaske\bAktSoDat.prg" />
+    <Compile Include="Aktenmaske\AktenNeuAnlageSGBMassenverfahren.prg" />
+    <Compile Include="Aktenmaske\Eingangsdaten.prg" />
+    <Compile Include="Aktenmaske\ErledSonst.prg" />
+    <Compile Include="Aktenmaske\FunktionenAkten.prg" />
+    <Compile Include="Aktenmaske\Gueterichterdaten.prg" />
+    <Compile Include="Aktenmaske\KorrekturBEVergabe.prg" />
+    <Compile Include="Aktenmaske\ListeStreitsachengebuehren.prg" />
+    <Compile Include="Aktenmaske\ListeverbundeneVerfahren.prg" />
+    <Compile Include="Aktenmaske\ListeVermerke.prg" />
+    <Compile Include="Aktenmaske\ListeWiedervorlagen.prg" />
+    <Compile Include="Aktenmaske\NebenEntscheidungenVorinstanz.prg" />
+    <Compile Include="Aktenmaske\ParteienSortieren.prg" />
+    <Compile Include="Aktenmaske\ParteiStatusLAG.prg" />
+    <Compile Include="Aktenmaske\Parteistatus1Instanz.prg" />
+    <Compile Include="Aktenmaske\ParteistatusLSG.prg" />
+    <Compile Include="Aktenmaske\ParteistatusOVG.prg" />
+    <Compile Include="Aktenmaske\PBVertreterZumVerfahren.prg" />
+    <Compile Include="Aktenmaske\RechtsmittelErfassung.prg" />
+    <Compile Include="Aktenmaske\Rechtsmittelliste.prg" />
+    <Compile Include="Aktenmaske\SGBeschluesse.prg" />
+    <Compile Include="Aktenmaske\SGBeschluesseEingabe.prg" />
+    <Compile Include="Aktenmaske\StapeleingabeSachgebiete.prg" />
+    <Compile Include="Aktenmaske\Terminshistorie.prg" />
+    <Compile Include="Aktenmaske\Verfahrenbearbeiten.prg" />
+    <Compile Include="Aktenmaske\Verfahrensstaende.prg" />
+    <Compile Include="Aktenmaske\Vorinstanzdaten.prg" />
+    <Compile Include="Aktenmaske\WeitereAnwaelte.prg" />
+    <Compile Include="Aktenmaske\Wiedervorlagen.prg" />
+    <Compile Include="Aktenmaske\WinZustellprotokoll.prg" />
+    <Compile Include="Aktenmaske\WinZustellungen.prg" />
+    <Compile Include="Aktenmaske\ZSDTerm.prg" />
+    <None Include="Allgemein\Alt\TexteingabeEinzeilig.prg" />
+    <None Include="Allgemein\Alt\TexteingabenMehrzeilig.prg" />
+    <None Include="Allgemein\Alt\ZeitraumAbfragen.prg" />
+    <None Include="Allgemein\Alt\WebControl.prg" />
+    <Compile Include="Allgemein\AzAddition.prg" />
+    <Compile Include="Allgemein\AzAender.prg" />
+    <Compile Include="Allgemein\Datenpfad.prg" />
+    <Compile Include="Allgemein\FormularEingabe.prg" />
+    <Compile Include="Allgemein\Gerichtsbarkeit.prg" />
+    <Compile Include="Allgemein\Intranet.prg" />
+    <Compile Include="Allgemein\Juris.prg" />
+    <Compile Include="Allgemein\KlVorschau.prg" />
+    <Compile Include="Allgemein\MonatJahr.prg" />
+    <Compile Include="Allgemein\MyZaehlMonat.prg" />
+    <Compile Include="Allgemein\PKHOrdnerAnlegen.prg" />
+    <Compile Include="Allgemein\RubStammDlg.prg" />
+    <Compile Include="Allgemein\SLinfo.prg" />
+    <Compile Include="Allgemein\Spruchkoerper.prg" />
+    <Compile Include="Allgemein\SQLEingabe.prg" />
+    <Compile Include="Allgemein\Stichtag.prg" />
+    <Compile Include="Allgemein\Textehrri.prg" />
+    <Compile Include="Allgemein\TextEingabeListBox.prg" />
+    <Compile Include="Allgemein\TextEingabeZeile.prg" />
+    <Compile Include="Allgemein\UnterschriftLadungen.prg" />
+    <Compile Include="Allgemein\UnterWin.prg" />
+    <Compile Include="Allgemein\VerfAdrZusatz.prg" />
+    <Compile Include="Allgemein\VonBisDatum.prg" />
+    <Compile Include="Allgemein\WinabwKurzrubrum.prg" />
+    <Compile Include="Allgemein\WinAkt2Kammer.prg" />
+    <Compile Include="Allgemein\WinAnmerk.prg" />
+    <Compile Include="Benutzer\BenutzerListenEinstellungen2.prg" />
+    <Compile Include="Benutzer\Benutzerrollen_eAkte.prg" />
+    <Compile Include="Benutzer\FavoritenWorkflow.prg" />
+    <Compile Include="Benutzer\Listeneinstellung.prg" />
+    <Compile Include="Benutzer\Login.prg" />
+    <Compile Include="DAL\DbConnect2.prg" />
+    <Compile Include="DAL\DbConnect3.prg" />
+    <Compile Include="DAL\DBConvert.prg" />
+    <Compile Include="DAL\DbConvertEx.prg" />
+    <Compile Include="DAL\DbFunctionsCrypt.prg" />
+    <Compile Include="DAL\DbConnect.prg" />
+    <Compile Include="DAL\DbTableFunctions.prg" />
+    <Compile Include="DAL\DbUpdateTable2.prg" />
+    <Compile Include="Dokumentation\Anonymisierung.prg" />
+    <Compile Include="Dokumentation\AnzeigeVolltextsuche.prg" />
+    <Compile Include="Dokumentation\BearbeitenDokumentation.prg" />
+    <Compile Include="Dokumentation\ErfassenSuchworteNormen.prg" />
+    <Compile Include="Dokumentation\ErfassenSuchworteNormen2.prg" />
+    <Compile Include="Dokumentation\FilterDokumentation.prg" />
+    <Compile Include="Dokumentation\FunctionsDokumentation.prg" />
+    <Compile Include="Dokumentation\MatEingabeGliederung.prg" />
+    <Compile Include="Dokumentation\SLDokumentation.prg" />
+    <Compile Include="Dokumentation\SLDokumentationFilter.prg" />
+    <Compile Include="Dokumente\BAMFAufteilung.prg" />
+    <Compile Include="Dokumente\BeiaktenAlsAnlage.prg" />
+    <Compile Include="Dokumente\Beiaktenbearbeitung.prg" />
+    <Compile Include="Dokumente\Datenaustausch.prg" />
+    <Compile Include="Dokumente\DatenaustauschFunktionen.prg" />
+    <Compile Include="Dokumente\DocEingabe.prg" />
+    <Compile Include="Dokumente\DocListeAusgang.prg" />
+    <Compile Include="Dokumente\DokumenteeAkte.prg" />
+    <Compile Include="Dokumente\Dokumentenlauf.prg" />
+    <Compile Include="Dokumente\DokumentenlisteEntwuerfe.prg" />
+    <Compile Include="Dokumente\DokumentenlisteEntwurfsbearbeitung.prg" />
+    <Compile Include="Dokumente\DokumentenlistePDFBearbeitung.prg" />
+    <Compile Include="Dokumente\DokumentenlistePostkorb.prg" />
+    <Compile Include="Dokumente\DokumentenlisteSchreibwerk.prg" />
+    <Compile Include="Dokumente\DokumentenlisteSignaturen.prg" />
+    <Compile Include="Dokumente\DokumentenlisteZustellung.prg" />
+    <Compile Include="Dokumente\FunktionenDokumente.prg" />
+    <Compile Include="Dokumente\StapelDocEingabe.prg" />
+    <Compile Include="Dokumente\Versandpakete\EFSchriftstueck.prg" />
+    <Compile Include="Dokumente\Versandpakete\Empfaengerauswahl.prg" />
+    <Compile Include="Dokumente\Versandpakete\Logger.prg" />
+    <Compile Include="Dokumente\Versandpakete\VersandpaketeEAkte.prg" />
+    <Compile Include="E2A\AktenE2A.prg" />
+    <Compile Include="E2A\Api.Log\IE2ALogger.prg" />
+    <Compile Include="E2A\Api.Log\E2ALogger.prg" />
+    <Compile Include="E2A\Api.Log\E2ALogLevel.prg" />
+    <Compile Include="E2A\Api.Sinc\E2AClientFactory.prg" />
+    <Compile Include="E2A\Api.Sinc\E2ARpClientFactory.prg" />
+    <Compile Include="E2A\Api.Sinc\E2AStsClient.prg" />
+    <Compile Include="E2A\Api.Sinc\E2AStsClientConfiguration.prg" />
+    <Compile Include="E2A\Api\E2AApi.prg" />
+    <Compile Include="E2A\Api\E2AApiInitException.prg" />
+    <Compile Include="E2A\Api\E2ADisposableClient.prg" />
+    <Compile Include="E2A\Api\E2AContext.prg" />
+    <Compile Include="E2A\Api\E2AContextLogger.prg" />
+    <Compile Include="E2A\DokumentKopieService.prg" />
+    <Compile Include="E2A\E2ACallbackImpl.prg" />
+    <Compile Include="E2A\E2ARahmenInvoker.prg" />
+    <Compile Include="E2A\E2ASchriftstueckVorlagen.prg" />
+    <Compile Include="E2A\E2ASelbstermaechtigung.prg" />
+    <Compile Include="E2A\E2AVersandpakete.prg" />
+    <Compile Include="E2A\eAktenFlag.prg" />
+    <Compile Include="eAkten Systeme\eAktenAufgaben.prg" />
+    <Compile Include="eAkten Systeme\eAktenAufgabenklasse.prg" />
+    <Compile Include="eAkten Systeme\Kontrollliste.prg" />
+    <Compile Include="EFNR.prg" />
+    <Compile Include="EFRibbon\EFDefines.prg" />
+    <Compile Include="EFRibbon\EFRibbonControl.prg" />
+    <Compile Include="EFRibbon\EFRibbonCreator.prg" />
+    <Compile Include="EFRibbon\EFRibbonHelper.prg" />
+    <Compile Include="EFRibbon\EFRibbonManager.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Execute\EFRibbonExecute.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Execute\MainRibbon_Execute.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Execute\RibbonPages_Execute.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\AdressRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\AktenbockRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\AktenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\AzStammRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\BeiaktenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\DocListeRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\DokumentationRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\EARRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\EGVPAusgangsbuchRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\EGVPImportRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\EntwuerfeRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\KammerRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\KostenrechnungRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\KostenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\KSWGSWRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\MainRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\ManagementRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\MassenverfahrenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\MaterialRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\NeueingangRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\PoolingListeRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\Ribbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\ShowVerfahrenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\SLRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\SokaMahnverfahrenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\StandardDateiRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\StapelTerminierungRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\SVRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\TermAzRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\TermtagRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\VerarbeitenRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\VersandpaketeRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\VerwaltungsakteRibbon_Setup.prg" />
+    <Compile Include="EFRibbon\EFRibbon_Setup\WVRibbon_Setup.prg" />
+    <Compile Include="EIP\EIPBeiakteLoeschen.prg" />
+    <Compile Include="EIP\EIPVersandpakete.prg" />
+    <Compile Include="EIP\Postausgangsbuch.prg" />
+    <Compile Include="EIP\XmlHelper.prg" />
+    <Compile Include="Entscheidungsfindung\Auswahlkommentare.prg" />
+    <Compile Include="Entscheidungsfindung\Entscheidungfindung.prg" />
+    <Compile Include="Entscheidungsfindung\Gliederungseingabe.prg" />
+    <Compile Include="Entscheidungsfindung\LinkinDoku.prg" />
+    <Compile Include="Entscheidungsfindung\Spaltenbearb.prg" />
+    <Compile Include="Entscheidungsfindung\Verfahrenfreigabe.prg" />
+    <Compile Include="Entscheidungsfindung\VortragEingabe.prg" />
+    <Compile Include="ERVeAkte\AktenbockE2A.prg" />
+    <Compile Include="ERVeAkte\AktenbockEIP.prg" />
+    <Compile Include="ERVeAkte\BamfOU.prg" />
+    <Compile Include="ERVeAkte\EGVPAusgangsbuch.prg" />
+    <Compile Include="ERVeAkte\EGVPExport.prg" />
+    <Compile Include="ERVeAkte\FunktioneneAkte.prg" />
+    <Compile Include="ERVeAkte\Poststelle.prg" />
+    <Compile Include="ERVeAkte\Poststelle_eIP.prg" />
+    <Compile Include="ERVeAkte\ZustellungRuecklauf.prg" />
+    <Compile Include="Form1Exports.prg" />
+    <Compile Include="form1InitMethoden.prg" />
+    <Compile Include="Form1Schnittstellen.prg" />
+    <Compile Include="Form1Schnittstellen2.prg" />
+    <Compile Include="Form1Statistikenprg.prg" />
+    <Compile Include="GlobaleVariablen.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Abfragen.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\ArrayAuswahlMult.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\AuswahlHistTermine.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\AuswahlMaterial.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\AuswahlSGG.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\BeiaktenAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\Array2DimAuswahlMult.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\StandardAuswahlTextmitCheckbox.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\EmpfaengerAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\GKGAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\LandAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\ListBoxAuswahlHelper.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\NCAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\PBAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\SokaVertreterAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\StandardAuswahlText.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\TagAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\TextAuswahlString.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\TextAuswahlValue.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\VerfstandAuswahl.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Auswahlklassen\ZuletztVergeben.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Datumsfunktionen.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Formularhelper.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Editoren.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\FunctionsDivers.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\GridvViewhelper.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\LookUpEingabe.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\NeuesDatumAbfragen.prg" />
+    <Compile Include="Hilfsklassen_Funktionen\Textabfrage.prg" />
+    <Compile Include="Juris\SLJuris.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KstSozDaten.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KstVorschuss.prg" />
+    <Compile Include="KostenPKHEntschaedigung\EntschaedigungEAR.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KostenposBearbeiten.prg" />
+    <Compile Include="KostenPKHEntschaedigung\Kostenrechnung.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KostenrechnungAnAndere.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KostenrechnungFunktionen.prg" />
+    <Compile Include="KostenPKHEntschaedigung\KstStart.prg" />
+    <Compile Include="KostenPKHEntschaedigung\NRWUeberJaehrig.prg" />
+    <Compile Include="KostenPKHEntschaedigung\Pauschgebuehren.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHArbG.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHPlan.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHWin.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHFunktionen.prg" />
+    <Compile Include="KostenPKHEntschaedigung\StammdatenKostenPositionen.prg" />
+    <Compile Include="KostenPKHEntschaedigung\SVDoEntschaedigung.prg" />
+    <Compile Include="Benutzer\Benutzereingabe.prg" />
+    <Compile Include="Benutzer\Benutzereinstellungen.prg" />
+    <Compile Include="Benutzer\Benutzerfunktionen.prg" />
+    <Compile Include="Benutzer\Benutzerlisten.prg" />
+    <Compile Include="Benutzer\Benutzerrechte.prg" />
+    <Compile Include="Benutzer\Benutzerschnellstartleiste.prg" />
+    <Compile Include="Benutzer\Benutzerverfuegungen.prg" />
+    <Compile Include="Benutzer\Benutzerverwaltung.prg" />
+    <Compile Include="Benutzer\Schreibwerksautomation.prg" />
+    <Compile Include="DAL\DbDeleteTable.prg" />
+    <Compile Include="DAL\DbInsertTable.prg" />
+    <Compile Include="DAL\DbUpdateTable.prg" />
+    <Compile Include="DAL\LogHelper.prg" />
+    <Compile Include="Dokumentation\Materialsammlung.prg" />
+    <Compile Include="Dokumente\Beiaktenverwaltung.prg" />
+    <Compile Include="Dokumente\DocListeKontextMenu.prg" />
+    <Compile Include="Dokumente\Dokumentenliste.prg" />
+    <Compile Include="Dokumente\DokumentenlisteMethoden.prg" />
+    <Compile Include="Dokumente\eVerwaltungakte.prg" />
+    <Compile Include="ERVeAkte\Aktenbock.prg" />
+    <Compile Include="ERVeAkte\AktenbockDaten.prg" />
+    <Compile Include="ERVeAkte\Messagedaten.prg" />
+    <Content Include="ERVeAkte\Poststelle2.prg" />
+    <Compile Include="Form1Methoden.prg" />
+    <Compile Include="KostenPKHEntschaedigung\functionsKosten.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHBerechnung.prg" />
+    <Compile Include="KostenPKHEntschaedigung\PKHGriddaten.prg" />
+    <None Include="bin\Debug\AxInterop.XtremeCommandBars.dll" />
+    <None Include="bin\Debug\Devart.Data.dll" />
+    <None Include="bin\Debug\Devart.Data.PostgreSql.dll" />
+    <None Include="bin\Debug\de\DevExpress.Data.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.DataAccess.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Office.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Pdf.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Printing.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.RichEdit.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Snap.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Sparkline.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Spreadsheet.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Utils.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Utils.v19.1.UI.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.Xpo.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraBars.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraCharts.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraCharts.v19.1.Wizard.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraEditors.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraGrid.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraLayout.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraNavBar.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraPdfViewer.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraPrinting.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraRichEdit.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraScheduler.v19.1.Core.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraScheduler.v19.1.Extensions.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraScheduler.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraSpellChecker.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraTreeList.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\DevExpress.XtraVerticalGrid.v19.1.resources.dll" />
+    <None Include="bin\Debug\de\TXDocumentServer.resources.dll" />
+    <None Include="bin\Debug\de\TXDrawing.resources.dll" />
+    <None Include="bin\Debug\de\TXTextControl.resources.dll" />
+    <None Include="bin\Debug\DynamicControls.dll" />
+    <None Include="bin\Debug\DynamicControls.dll.config" />
+    <None Include="bin\Debug\efdb.config" />
+    <None Include="bin\Debug\EurekaFach.exe" />
+    <None Include="bin\Debug\EurekaFach.exe.config" />
+    <None Include="bin\Debug\EurekaWinForms.dll" />
+    <None Include="bin\Debug\Helper.dll" />
+    <None Include="bin\Debug\HelperCS.dll" />
+    <None Include="bin\Debug\Icons\Adressen.ico" />
+    <None Include="bin\Debug\Icons\Akten.ico" />
+    <None Include="bin\Debug\Icons\Aktenbock.ico" />
+    <None Include="bin\Debug\Icons\aktualisieren.ico" />
+    <None Include="bin\Debug\Icons\anderersk.ico" />
+    <None Include="bin\Debug\Icons\anfang.ico" />
+    <None Include="bin\Debug\Icons\aufhebung.ico" />
+    <None Include="bin\Debug\Icons\bearbeiten.ico" />
+    <None Include="bin\Debug\Icons\calculator1.ico" />
+    <None Include="bin\Debug\Icons\Calendar.ico" />
+    <None Include="bin\Debug\Icons\clock.ico" />
+    <None Include="bin\Debug\Icons\copy.ico" />
+    <None Include="bin\Debug\Icons\dms1.ico" />
+    <None Include="bin\Debug\Icons\dokuliste.ico" />
+    <None Include="bin\Debug\Icons\down.ico" />
+    <None Include="bin\Debug\Icons\ear.ico" />
+    <None Include="bin\Debug\Icons\edit.ico" />
+    <None Include="bin\Debug\Icons\ende.ico" />
+    <None Include="bin\Debug\Icons\euro.ico" />
+    <None Include="bin\Debug\Icons\Excel.ico" />
+    <None Include="bin\Debug\Icons\fax.ico" />
+    <None Include="bin\Debug\Icons\fax1.ico" />
+    <None Include="bin\Debug\Icons\fileimport.ico" />
+    <None Include="bin\Debug\Icons\filenew.ico" />
+    <None Include="bin\Debug\Icons\filter.ico" />
+    <None Include="bin\Debug\Icons\FolderAdd.ico" />
+    <None Include="bin\Debug\Icons\fSchliessen.ico" />
+    <None Include="bin\Debug\Icons\gesamtliste.ico" />
+    <None Include="bin\Debug\Icons\green_dot.ico" />
+    <None Include="bin\Debug\Icons\gsw.ico" />
+    <None Include="bin\Debug\Icons\hilfe.ico" />
+    <None Include="bin\Debug\Icons\Import.ico" />
+    <None Include="bin\Debug\Icons\Inbox.ico" />
+    <None Include="bin\Debug\Icons\info.ico" />
+    <None Include="bin\Debug\Icons\justice.ico" />
+    <None Include="bin\Debug\Icons\Kalender.ico" />
+    <None Include="bin\Debug\Icons\kasse.ico" />
+    <None Include="bin\Debug\Icons\kopieren.ico" />
+    <None Include="bin\Debug\Icons\ksw.ico" />
+    <None Include="bin\Debug\Icons\left.ico" />
+    <None Include="bin\Debug\Icons\listen.ico" />
+    <None Include="bin\Debug\Icons\mail.ico" />
+    <None Include="bin\Debug\Icons\Neu.ico" />
+    <None Include="bin\Debug\Icons\Noteadd.ico" />
+    <None Include="bin\Debug\Icons\NoteAdd48.png" />
+    <None Include="bin\Debug\Icons\outlook.ico" />
+    <None Include="bin\Debug\Icons\outlooksingle.ico" />
+    <None Include="bin\Debug\Icons\paperclip.ico" />
+    <None Include="bin\Debug\Icons\papierkorb.ico" />
+    <None Include="bin\Debug\Icons\pdf.ico" />
+    <None Include="bin\Debug\Icons\persanm.ico" />
+    <None Include="bin\Debug\Icons\printersmall.ico" />
+    <None Include="bin\Debug\Icons\programmende.ico" />
+    <None Include="bin\Debug\Icons\programmende1.ico" />
+    <None Include="bin\Debug\Icons\red_dot.ico" />
+    <None Include="bin\Debug\Icons\refresh.ico" />
+    <None Include="bin\Debug\Icons\RibbonMinimize.png" />
+    <None Include="bin\Debug\Icons\right.ico" />
+    <None Include="bin\Debug\Icons\rotate180.ico" />
+    <None Include="bin\Debug\Icons\rotate90.ico" />
+    <None Include="bin\Debug\Icons\Scanner.ico" />
+    <None Include="bin\Debug\Icons\schere.ico" />
+    <None Include="bin\Debug\Icons\Search.ico" />
+    <None Include="bin\Debug\Icons\signature.ico" />
+    <None Include="bin\Debug\Icons\SignStop.ico" />
+    <None Include="bin\Debug\Icons\SmallIcons.bmp" />
+    <None Include="bin\Debug\Icons\spruchkoerper.ico" />
+    <None Include="bin\Debug\Icons\Stammblatt.ico" />
+    <None Include="bin\Debug\Icons\standort.ico" />
+    <None Include="bin\Debug\Icons\statistik.ico" />
+    <None Include="bin\Debug\Icons\Streitliste.ico" />
+    <None Include="bin\Debug\Icons\suchen.ico" />
+    <None Include="bin\Debug\Icons\tauschen.ico" />
+    <None Include="bin\Debug\Icons\text.ico" />
+    <None Include="bin\Debug\Icons\transport.ico" />
+    <None Include="bin\Debug\Icons\up.ico" />
+    <None Include="bin\Debug\Icons\verarbeiten.ico" />
+    <None Include="bin\Debug\Icons\verfg.ico" />
+    <None Include="bin\Debug\Icons\viewday.ico" />
+    <None Include="bin\Debug\Icons\viewer.ico" />
+    <None Include="bin\Debug\Icons\viewmonth.ico" />
+    <None Include="bin\Debug\Icons\viewweek.ico" />
+    <None Include="bin\Debug\Icons\vorlage.png" />
+    <None Include="bin\Debug\Icons\warning.png" />
+    <None Include="bin\Debug\Icons\wechseln.ico" />
+    <None Include="bin\Debug\Icons\weitereVerf.ico" />
+    <None Include="bin\Debug\Icons\word.ico" />
+    <None Include="bin\Debug\Icons\word1.ico" />
+    <None Include="bin\Debug\Icons\word2.ico" />
+    <None Include="bin\Debug\Icons\WV.ico" />
+    <None Include="bin\Debug\Icons\wvliste.ico" />
+    <None Include="bin\Debug\Icons\xml.ico" />
+    <None Include="bin\Debug\Icons\yellow_dot.ico" />
+    <None Include="bin\Debug\Icons\zaehlen.ico" />
+    <None Include="bin\Debug\IniFileCs.dll" />
+    <None Include="bin\Debug\Interop.XtremeCommandBars.dll" />
+    <None Include="bin\Debug\Interop.XtremePropertyGrid.dll" />
+    <None Include="bin\Debug\Microsoft.Office.Interop.Excel.dll" />
+    <None Include="bin\Debug\Microsoft.Office.Interop.Outlook.dll" />
+    <None Include="bin\Debug\Microsoft.Office.Interop.Word.dll" />
+    <None Include="bin\Debug\NLog.config" />
+    <None Include="bin\Debug\NLog.dll" />
+    <None Include="bin\Debug\office.dll" />
+    <None Include="bin\Debug\Office2010.dll" />
+    <None Include="bin\Debug\Office2013.dll" />
+    <None Include="bin\Debug\Office2013\Office2013.dsp" />
+    <None Include="bin\Debug\Office2013\Office2013.dsw" />
+    <None Include="bin\Debug\Office2013\Office2013.plg" />
+    <None Include="bin\Debug\Office2013\Office2013Access.ini" />
+    <None Include="bin\Debug\Office2013\Office2013AccessGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013AccessGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013Excel.ini" />
+    <None Include="bin\Debug\Office2013\Office2013ExcelGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013ExcelGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013OneNote.ini" />
+    <None Include="bin\Debug\Office2013\Office2013OneNoteGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013OneNoteGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013Outlook.ini" />
+    <None Include="bin\Debug\Office2013\Office2013OutlookGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013OutlookGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013PowerPoint.ini" />
+    <None Include="bin\Debug\Office2013\Office2013PowerPointGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013PowerPointGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013Publisher.ini" />
+    <None Include="bin\Debug\Office2013\Office2013PublisherGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013PublisherGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Office2013Word.ini" />
+    <None Include="bin\Debug\Office2013\Office2013WordGrayDark.ini" />
+    <None Include="bin\Debug\Office2013\Office2013WordGrayLight.ini" />
+    <None Include="bin\Debug\Office2013\Release\Office2013.res" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-large-rtl.png" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-large.png" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-medium-rtl.png" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-medium.png" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-small-rtl.png" />
+    <None Include="bin\Debug\Office2013\res\backstage-back-button-small.png" />
+    <None Include="bin\Debug\Office2013\res\CalendarEventGlyphs_100.bmp" />
+    <None Include="bin\Debug\Office2013\res\CalendarEventGlyphs_125.bmp" />
+    <None Include="bin\Debug\Office2013\res\CalendarEventGlyphs_150.bmp" />
+    <None Include="bin\Debug\Office2013\res\CalendarEventGlyphs_200.bmp" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-spring.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-stars.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-straws.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-large-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-spring.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-stars.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-straws.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-medium-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-spring.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-stars.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-straws.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\dark-gray-small-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-spring.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-stars.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-straws.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-large-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-spring.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-stars.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-straws.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-medium-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-spring.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-stars.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-straws.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\light-gray-small-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\TimeLineViewAppointmentIcon_100.png" />
+    <None Include="bin\Debug\Office2013\res\TimeLineViewAppointmentIcon_125.png" />
+    <None Include="bin\Debug\Office2013\res\TimeLineViewAppointmentIcon_150.png" />
+    <None Include="bin\Debug\Office2013\res\TimeLineViewAppointmentIcon_200.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-spring.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-stars.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-straws.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\white-large-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-spring.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-stars.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-straws.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\white-medium-underwater.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-circuit.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-clouds.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-geometry.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-spring.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-stars.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-straws.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2013\res\white-small-underwater.png" />
+    <None Include="bin\Debug\Office2016.dll" />
+    <None Include="bin\Debug\Office2016\Office2016.dsp" />
+    <None Include="bin\Debug\Office2016\Office2016.dsw" />
+    <None Include="bin\Debug\Office2016\Office2016.plg" />
+    <None Include="bin\Debug\Office2016\Office2016AccessBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016AccessColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016AccessDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016AccessWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016ExcelBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016ExcelColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016ExcelDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016ExcelWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OneNoteBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OneNoteColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OneNoteDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OneNoteWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OutlookBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OutlookColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OutlookDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016OutlookWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PowerPointBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PowerPointColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PowerPointDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PowerPointWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PublisherBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PublisherColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PublisherDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016PublisherWhite.ini" />
+    <None Include="bin\Debug\Office2016\Office2016WordBlack.ini" />
+    <None Include="bin\Debug\Office2016\Office2016WordColorful.ini" />
+    <None Include="bin\Debug\Office2016\Office2016WordDarkGray.ini" />
+    <None Include="bin\Debug\Office2016\Office2016WordWhite.ini" />
+    <None Include="bin\Debug\Office2016\Release\Office2016.res" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-large-rtl.png" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-large.png" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-medium-rtl.png" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-medium.png" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-small-rtl.png" />
+    <None Include="bin\Debug\Office2016\res\backstage-back-button-small.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-spring.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-stars.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-straws.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\black-large-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-spring.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-stars.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-straws.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\black-medium-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-spring.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-stars.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-straws.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\black-small-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\CalendarEventGlyphs_100.bmp" />
+    <None Include="bin\Debug\Office2016\res\CalendarEventGlyphs_125.bmp" />
+    <None Include="bin\Debug\Office2016\res\CalendarEventGlyphs_150.bmp" />
+    <None Include="bin\Debug\Office2016\res\CalendarEventGlyphs_200.bmp" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-spring.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-stars.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-straws.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-large-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-spring.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-stars.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-straws.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-medium-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-spring.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-stars.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-straws.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\colorful-small-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-spring.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-stars.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-straws.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-large-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-spring.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-stars.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-straws.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-medium-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-spring.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-stars.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-straws.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\dark-gray-small-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\Thumbs.db" />
+    <None Include="bin\Debug\Office2016\res\TimeLineViewAppointmentIcon_100.png" />
+    <None Include="bin\Debug\Office2016\res\TimeLineViewAppointmentIcon_125.png" />
+    <None Include="bin\Debug\Office2016\res\TimeLineViewAppointmentIcon_150.png" />
+    <None Include="bin\Debug\Office2016\res\TimeLineViewAppointmentIcon_200.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-spring.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-stars.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-straws.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\white-large-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-spring.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-stars.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-straws.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\white-medium-underwater.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-calligraphy.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-circles-and-stripes.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-circuit.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-clouds.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-doodle-circles.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-doodle-diamonds.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-geometry.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-lunchbox.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-school-supplies.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-spring.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-stars.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-straws.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-tree-rings.png" />
+    <None Include="bin\Debug\Office2016\res\white-small-underwater.png" />
+    <None Include="bin\Debug\Oracle.ManagedDataAccess.dll" />
+    <None Include="bin\Debug\stdole.dll" />
+    <None Include="bin\Debug\TXDocumentServer.dll" />
+    <None Include="bin\Debug\TXDocumentServer.Windows.Forms.dll" />
+    <None Include="bin\Debug\TXDrawing.dll" />
+    <None Include="bin\Debug\TXDrawing.Windows.Forms.dll" />
+    <None Include="bin\Debug\TXTextControl.dll" />
+    <None Include="bin\Debug\TXTextControl.Server.dll" />
+    <None Include="bin\Debug\TXTextControl.Windows.Forms.dll" />
+    <None Include="bin\Debug\VORDDClasses.dll" />
+    <None Include="bin\Debug\VOSystemClasses.dll" />
+    <None Include="bin\Debug\XSharp.Core.dll" />
+    <None Include="bin\Debug\XSharp.Rdd.dll" />
+    <None Include="bin\Debug\XSharp.RT.dll" />
+    <None Include="bin\Debug\XSharp.VO.dll" />
+    <Compile Include="KostenPKHEntschaedigung\ZEAbrech.prg" />
+    <Compile Include="Program.prg">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form1.prg">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.prg">
+      <DependentUpon>Form1.prg</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.prg">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.prg">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Provisorisch\Facades\EF_DbServer.prg" />
+    <Compile Include="Provisorisch\Facades\EF_SokaMV_DbServer.prg" />
+    <Compile Include="Provisorisch\Facades\EF_SokaV_DbServer.prg" />
+    <Compile Include="Provisorisch\Facades\Facade_Tests.prg" />
+    <Compile Include="Provisorisch\Facades\WinWarte.prg" />
+    <None Include="DBUpdates\Dbfstruc.Dbf" />
+    <None Include="DBUpdates\Sqlupd.Dbf" />
+    <EmbeddedResource Include="EFRibbon\EFShortcuts.txt" />
+    <None Include="EFRibbon_Office2010Blue.skinpatch">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EFRibbon_Office2013LightGray.skinpatch">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EFRibbon_Office2016Colorful.skinpatch">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EFRibbon_Office2019Colorful.skinpatch">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EFRibbon_Office2019White.skinpatch">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Sachverstaendige\ListeZentraleSV.prg" />
+    <Compile Include="Sachverstaendige\SVDatenspeicher.prg" />
+    <Compile Include="Sachverstaendige\SVDokumente.prg" />
+    <Compile Include="Sachverstaendige\SVFachgebiete.prg" />
+    <Compile Include="Sachverstaendige\SVMaske.prg" />
+    <Compile Include="Sachverstaendige\SVMerkmale.prg" />
+    <Compile Include="Sachverstaendige\SVSuche.prg" />
+    <Compile Include="Sachverstaendige\SVServices.prg" />
+    <Compile Include="Schreibwerk\AnschreibenAusRegister.prg" />
+    <Compile Include="Schreibwerk\BausteineImSW.prg" />
+    <Compile Include="Schreibwerk\BausteineImSWEx.prg" />
+    <Compile Include="Schreibwerk\Bausteinpflege.prg" />
+    <Compile Include="Schreibwerk\bLadung.prg" />
+    <Compile Include="Schreibwerk\bLadungsStamm.prg" />
+    <Compile Include="Schreibwerk\AnschrAdrReg.prg" />
+    <Compile Include="Schreibwerk\EARTextBearbeiten.prg" />
+    <Compile Include="Schreibwerk\EARTexte.prg" />
+    <Compile Include="Schreibwerk\EbAnAndere.prg" />
+    <Compile Include="Schreibwerk\EBErstellung.prg" />
+    <Compile Include="Schreibwerk\Folgeverarbeitung.prg" />
+    <Compile Include="Schreibwerk\FormularBausteine.prg" />
+    <Compile Include="Schreibwerk\FormularbearbeitenGSW.prg" />
+    <Compile Include="Schreibwerk\FormularbearbeitenKSW.prg" />
+    <Compile Include="Schreibwerk\FormulareStammdaten.prg" />
+    <Compile Include="Schreibwerk\FunktionenSchreibwerk.prg" />
+    <Compile Include="Schreibwerk\GSWFormulare.prg" />
+    <Compile Include="Schreibwerk\GSWStammdaten.prg" />
+    <Compile Include="Schreibwerk\KFBGegner.prg" />
+    <Compile Include="Schreibwerk\KSWStammdaten.prg" />
+    <Compile Include="Schreibwerk\Kurzrubrum.prg" />
+    <Compile Include="Schreibwerk\PauschGebuehrenBriefe.prg" />
+    <Compile Include="Schreibwerk\RubrumWordML.prg" />
+    <Compile Include="Schreibwerk\SchreibwerkBausteine.prg" />
+    <Compile Include="Schreibwerk\KSWFormulare.prg" />
+    <Compile Include="Schreibwerk\SchreibwerkBeteiligte.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\Gerichtsdaten.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\Personendaten.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\Richterbank.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\SchreibwerkVariablen.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\Terminsdaten.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\UserVariablen.prg" />
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\VarEingabe.Designer.prg">
+      <DependentUpon>VarEingabe.prg</DependentUpon>
+    </Compile>
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\VarEingabe.prg">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schreibwerk\Schreibwerksvariablen\Verfahrensdaten.prg" />
+    <Compile Include="Schreibwerk\SchreibwerkVerfBet.prg" />
+    <Compile Include="Schreibwerk\SWUmladung.prg" />
+    <Compile Include="Schreibwerk\Verfasser.prg" />
+    <Compile Include="Schreibwerk\Verfuegungen.prg" />
+    <Compile Include="Schreibwerk\WordHelper.prg" />
+    <Compile Include="SozialkassenVerfahren\ComboboxItem_IntConv.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaBegr.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaBuchstabenEingabe.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaMahnverfahren.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaNeuerTerminstag.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaRpflEingabe.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaSchnittstelle_Text.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaTerminierung.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaTerminsauswahl.prg" />
+    <Compile Include="SozialkassenVerfahren\SokaVerfahren.prg" />
+    <Compile Include="SozialkassenVerfahren\SOKAvonbis.prg" />
+    <Compile Include="SpezifikaArbG\ErledArbGBV.prg" />
+    <Compile Include="SpezifikaArbG\ErledArbGCa.prg" />
+    <Compile Include="SpezifikaArbG\ErledLAGSa.prg" />
+    <Compile Include="SpezifikaArbG\ErledLAGTaBV.prg" />
+    <Compile Include="SpezifikaArbG\Mahnzusatzdaten.prg" />
+    <Compile Include="SpezifikaFG\ErledFGK.prg" />
+    <Compile Include="SpezifikaFG\ErledFGV.prg" />
+    <Compile Include="SpezifikaSG\ErledLSG.prg" />
+    <Compile Include="SpezifikaSG\ErledLSGErst.prg" />
+    <Compile Include="SpezifikaSG\ErledSG.prg" />
+    <Compile Include="SpezifikaVG\ErledOVGAntrag.prg" />
+    <Compile Include="SpezifikaVG\ErledOVGBerufung.prg" />
+    <Compile Include="SpezifikaVG\ErledOVGErst.prg" />
+    <Compile Include="SpezifikaVG\ErledVGEil.prg" />
+    <Compile Include="SpezifikaVG\ErledVGKlage.prg" />
+    <Compile Include="SpezifikaVG\NC.prg" />
+    <Compile Include="Stammdaten\BankverbindungGericht.prg" />
+    <Compile Include="Stammdaten\EARIstAbwesend.prg" />
+    <Compile Include="Stammdaten\EARListenPostionen.prg" />
+    <Compile Include="Stammdaten\EARStammdaten.prg" />
+    <Compile Include="Stammdaten\EARZusatzdaten.prg" />
+    <Compile Include="Stammdaten\GTagEingabe.prg" />
+    <Compile Include="Stammdaten\ListeAllerEAR.prg" />
+    <Compile Include="Stammdaten\SNBearbeiten.prg" />
+    <Compile Include="Stammdaten\SuchworteNormen.prg" />
+    <Compile Include="Stammdaten\KammerBearbeiten.prg" />
+    <Compile Include="Stammdaten\ListeAllgemeineStammdaten.prg" />
+    <Compile Include="Stammdaten\Kammerliste.prg" />
+    <Compile Include="Stammdaten\StammdatenGerichtstage.prg" />
+    <Compile Include="Stammdaten\Workflowgruppen.prg" />
+    <Compile Include="Statistiken\Allgemein\Bilanzausgabe.prg" />
+    <Compile Include="Statistiken\Allgemein\Bilanzieren.prg" />
+    <Compile Include="Statistiken\Allgemein\Fachmonate.prg" />
+    <Compile Include="Statistiken\Allgemein\Gerichtsmethoden.prg" />
+    <Compile Include="Statistiken\Allgemein\GeschaeftsAnfall.prg" />
+    <Compile Include="Statistiken\BelegteSaele.prg" />
+    <Compile Include="Statistiken\ChartKlassen\ChartAZGeschaeftsentwicklung.prg" />
+    <Compile Include="Statistiken\ChartKlassen\ChartEGVP.prg" />
+    <Compile Include="Statistiken\ChartKlassen\ChartEingangErledigung.prg" />
+    <Compile Include="Statistiken\ChartKlassen\ChartTerminstage.prg">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistiken\ChartKlassen\ChartGeschaeftsentwicklung.prg" />
+    <Compile Include="Statistiken\ChartKlassen\ChartAnhaengigeNachSK.prg">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistiken\EBDialog.prg" />
+    <Compile Include="Statistiken\FachStatistiken\BEStatistikVG.prg" />
+    <Compile Include="Statistiken\FachStatistiken\FGStatistik.prg" />
+    <Compile Include="Statistiken\FachStatistiken\FGStatistikHelper.prg" />
+    <Compile Include="Statistiken\FachStatistiken\LSGStatistik.prg" />
+    <Compile Include="Statistiken\FachStatistiken\Pebbsy.prg" />
+    <Compile Include="Statistiken\FachStatistiken\ReportColumn.prg" />
+    <Compile Include="Statistiken\FachStatistiken\SGStatistik.prg" />
+    <Compile Include="Statistiken\FachStatistiken\SGStatistikHelper.prg" />
+    <Compile Include="Statistiken\FachStatistiken\SGStatistikNeu.prg" />
+    <Compile Include="Statistiken\GebuehrenStatistik.prg" />
+    <Content Include="Statistiken\NeueStatistikBaustelle.prg" />
+    <Compile Include="Statistiken\GebuehrenUebersicht.prg" />
+    <None Include="Statistiken\NichtVerwendet\SGBerlinStatistik.prg" />
+    <Compile Include="Statistiken\NRWArbG.prg" />
+    <Compile Include="Statistiken\Allgemein\Fachreports.prg" />
+    <Compile Include="Statistiken\NRWUeberJaehrig.prg" />
+    <Compile Include="Statistiken\NRWUrteilVerspaetet.prg" />
+    <Compile Include="Statistiken\RichterStatistikDlg.prg" />
+    <Compile Include="Statistiken\GerichtsStatistik.prg" />
+    <Compile Include="Statistiken\NDSBelastungClass.prg" />
+    <Compile Include="Statistiken\NeueStatistik2.prg" />
+    <Compile Include="Statistiken\PKHUeberwachung.prg" />
+    <Compile Include="Statistiken\Plausipruefung.prg" />
+    <Compile Include="Statistiken\Saalbelegung.prg" />
+    <Compile Include="Statistiken\Sitzungsplan.prg" />
+    <Compile Include="Statistiken\StatistikAuswahlClass.prg" />
+    <Compile Include="Statistiken\StatistikClass.prg" />
+    <Compile Include="Statistiken\StartVerfahrenserhebung.prg" />
+    <Compile Include="Statistiken\StatistikExportHelper.prg" />
+    <Compile Include="Statistiken\StatistikHelper.prg" />
+    <Compile Include="Statistiken\StatistikReport.prg" />
+    <Compile Include="Statistiken\Statistik_Funktionen.prg" />
+    <Compile Include="Statistiken\Streitbriefe.prg" />
+    <Compile Include="Statistiken\ZKFunktionen.prg" />
+    <Compile Include="Terminstage\EARAbsagezumTerminBearbeiten.prg" />
+    <Compile Include="Terminstage\EARAnschreiben.prg" />
+    <Compile Include="Terminstage\EARNeuerTermin.prg" />
+    <Compile Include="Terminstage\EARZumTermin.prg" />
+    <Compile Include="Terminstage\EARZumTerminSchreibwerk.prg" />
+    <Compile Include="Terminstage\Richterwahl.prg" />
+    <Compile Include="Terminstage\Rubrumerstellung.prg" />
+    <Compile Include="Terminstage\Serientermine.prg" />
+    <Compile Include="Terminstage\StapelVerfahrenterminieren.prg" />
+    <Compile Include="Terminstage\TermAzDaten.prg" />
+    <Compile Include="Terminstage\TermineOhneEAR.prg" />
+    <Compile Include="Terminstage\TerminiereVerfahren.prg" />
+    <Compile Include="Terminstage\Terminsergebnisse.prg" />
+    <Compile Include="Terminstage\Terminstage.prg" />
+    <Compile Include="Terminstage\TerminstageFunktionen.prg" />
+    <Compile Include="Terminstage\Terminstageplanen.prg" />
+    <Compile Include="Terminstage\TermLadung.prg" />
+    <Compile Include="Terminstage\TermladungDaten.prg" />
+    <Compile Include="Terminstage\TermVerfahren.prg" />
+    <Compile Include="Terminstage\VerfahrenTerminieren.prg" />
+    <Compile Include="Verfahrenslisten\ErzeugeVerfahrenslisten.prg">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verfahrenslisten\KorrekturGVPNachAbgabe.prg" />
+    <Compile Include="Verfahrenslisten\MassenERV.prg" />
+    <Compile Include="Verfahrenslisten\NeueVerfahrenslisten.prg" />
+    <Compile Include="Verfahrenslisten\ProtokollSelbstermaechtigung.prg" />
+    <Compile Include="Verfahrenslisten\SLDefines.prg" />
+    <Compile Include="Verfahrenslisten\SLeAKten.prg" />
+    <Compile Include="Verfahrenslisten\SLKlassendefinitionen.prg" />
+    <Compile Include="Verfahrenslisten\SLNCVerfahren.prg" />
+    <Compile Include="Verfahrenslisten\SLSchreibwerk.prg" />
+    <Compile Include="Verfahrenslisten\SLStapelMethoden.prg" />
+    <Compile Include="Verfahrenslisten\StapelRechtsmittel.prg" />
+    <Compile Include="Verfahrenslisten\StapelStandorteingabe.prg" />
+    <Compile Include="Verfahrenslisten\StapelAktenzusatzdaten.prg" />
+    <Compile Include="Verfahrenslisten\StapelWiedervorlagem.prg" />
+    <Compile Include="Verfahrenslisten\StreitlisteMethoden.prg" />
+    <Compile Include="Verfahrenslisten\StreitlistenKlasse.prg" />
+    <Compile Include="Verfahrenslisten\Wiedervorlagenliste.prg" />
+    <Compile Include="Verfahrenslisten\Zuordnung.prg" />
+    <Compile Include="XJustiz\XJNachricht.prg" />
+    <Compile Include="XJustiz\XJNachricht_Mahn.prg" />
+    <Compile Include="XJustiz\XJNachricht_SGO.prg" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="App.config" />
+    <None Include="efdb.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <None Include="tessdata\configs\config.cfg" />
+    <None Include="tessdata\deu.traineddata">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="tessdata\pdf.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Tesseract.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Allgemein\Alt" />
+    <Folder Include="Benutzer" />
+    <Folder Include="Adressen" />
+    <Folder Include="Aktenmaske" />
+    <Folder Include="Administrator" />
+    <Folder Include="bin\" />
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Debug\de\" />
+    <Folder Include="bin\Debug\Icons\" />
+    <Folder Include="bin\Debug\Office2013\" />
+    <Folder Include="bin\Debug\Office2013\Release\" />
+    <Folder Include="bin\Debug\Office2013\res\" />
+    <Folder Include="bin\Debug\Office2016\" />
+    <Folder Include="bin\Debug\Office2016\Release\" />
+    <Folder Include="bin\Debug\Office2016\res\" />
+    <Folder Include="Dokumente" />
+    <Folder Include="Dokumente\Versandpakete" />
+    <Folder Include="E2A\Api.Sinc" />
+    <Folder Include="E2A\Api" />
+    <Folder Include="E2A\Api.Log" />
+    <Folder Include="EFRibbon\EFRibbon_Execute" />
+    <Folder Include="EFRibbon\EFRibbon_Setup" />
+    <Folder Include="Entscheidungsfindung\" />
+    <Folder Include="ERVeAkte" />
+    <Folder Include="Dokumentation" />
+    <Folder Include="Hilfsklassen_Funktionen\Auswahlklassen" />
+    <Folder Include="KostenPKHEntschaedigung" />
+    <Folder Include="DAL" />
+    <Folder Include="Juris" />
+    <Folder Include="Hilfsklassen_Funktionen" />
+    <Folder Include="E2A" />
+    <Folder Include="EIP" />
+    <Folder Include="Allgemein" />
+    <Folder Include="DBUpdates" />
+    <Folder Include="eAkten Systeme" />
+    <Folder Include="EFRibbon" />
+    <Folder Include="Sachverstaendige" />
+    <Folder Include="Provisorisch\Facades\" />
+    <Folder Include="Schreibwerk\Schreibwerksvariablen" />
+    <Folder Include="SpezifikaFG" />
+    <Folder Include="SpezifikaSG" />
+    <Folder Include="SpezifikaArbG" />
+    <Folder Include="SpezifikaVG" />
+    <Folder Include="SozialkassenVerfahren" />
+    <Folder Include="Provisorisch\" />
+    <Folder Include="Statistiken" />
+    <Folder Include="Stammdaten" />
+    <Folder Include="Schreibwerk" />
+    <Folder Include="Statistiken\FachStatistiken" />
+    <Folder Include="Statistiken\Allgemein" />
+    <Folder Include="Statistiken\ChartKlassen" />
+    <Folder Include="Statistiken\NichtVerwendet" />
+    <Folder Include="Terminstage" />
+    <Folder Include="tessdata\" />
+    <Folder Include="tessdata\configs\" />
+    <Folder Include="Verfahrenslisten" />
+    <Folder Include="Properties\" />
+    <Folder Include="x64\" />
+    <Folder Include="x86\" />
+    <Folder Include="XJustiz\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.prg</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTExportCS\DTExportCS.csproj">
+      <Name>DTExportCS</Name>
+      <Project>{048a79d3-5558-4574-8e18-2d834142bab0}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicControls\DynamicControls.csproj">
+      <Name>DynamicControls</Name>
+      <Project>{bdb350e7-865a-481a-b5f2-55f06e3f6b8d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EurekaWinForms\EurekaWinForms.csproj">
+      <Name>EurekaWinForms</Name>
+      <Project>{0722de22-71d4-4a8b-8740-660d26085776}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\HelperCS\HelperCS.csproj">
+      <Name>HelperCS</Name>
+      <Project>{c2691822-d8d2-432e-8830-eb2ffd3e3904}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.xsproj">
+      <Name>Helper</Name>
+      <Project>{9f1c8577-7d1c-4a25-a98f-4555aec660a6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\IniFileCs\IniFileCs.csproj">
+      <Name>IniFileCs</Name>
+      <Project>{f88fc7a3-3965-4288-acb9-fec17f081a50}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\XJustizHelper\XJustizHelper.csproj">
+      <Name>XJustizHelper</Name>
+      <Project>{07ecf793-4d40-4a78-909f-b205e8e1997f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- This next bit is required unless the macro used to Import your targets is defined in an MSBuild toolset. -->
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PreBuildEvent />
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PreBuildEvent />
+    <PostBuildEvent />
+    <RunPostBuildEvent />
+  </PropertyGroup>
+  <Import Project="..\packages\Tesseract.Net.SDK.4.6.411\build\Tesseract.Net.SDK.targets" Condition="Exists('..\packages\Tesseract.Net.SDK.4.6.411\build\Tesseract.Net.SDK.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Tesseract.Net.SDK.4.6.411\build\Tesseract.Net.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.Net.SDK.4.6.411\build\Tesseract.Net.SDK.targets'))" />
+  </Target>
+</Project>

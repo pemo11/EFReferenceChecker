@@ -42,6 +42,13 @@
       <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Drawing.v23.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Printing.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Printing.v23.2.Core</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.Printing.v23.2.Core.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Printing.v23.2.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Utils.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Name>DevExpress.Utils.v23.2</Name>
       <SpecificVersion>False</SpecificVersion>
@@ -63,8 +70,53 @@
       <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraEditors.v23.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraGrid.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraGrid.v23.2</Name>
+      <AssemblyName>DevExpress.XtraGrid.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraGrid.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraLayout.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.XtraLayout.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraLayout.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.XtraPrinting.v23.2</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>DevExpress.XtraPrinting.v23.2.dll</AssemblyName>
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraPrinting.v23.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Name>Microsoft.CSharp</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>Microsoft.CSharp.dll</AssemblyName>
+    </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="Ookii.Dialogs.WinForms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158">
+      <Name>Ookii.Dialogs.WinForms</Name>
+      <AssemblyName>Ookii.Dialogs.WinForms.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\Ookii.Dialogs.WinForms.4.0.0\lib\net462\Ookii.Dialogs.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <Name>System.Buffers</Name>
+      <AssemblyName>System.Buffers.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <Name>System.ComponentModel.Composition</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.ComponentModel.Composition.dll</AssemblyName>
+    </Reference>
     <Reference Include="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Name>System.Configuration</Name>
       <AssemblyName>System.Configuration.dll</AssemblyName>
@@ -72,12 +124,74 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.Design.dll</AssemblyName>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.IO</Name>
+      <AssemblyName>System.IO.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <Name>System.Memory</Name>
+      <AssemblyName>System.Memory.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <Name>System.Numerics</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.Numerics.dll</AssemblyName>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Numerics.Vectors</Name>
+      <AssemblyName>System.Numerics.Vectors.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Extensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <Name>System.Resources.Extensions</Name>
+      <AssemblyName>System.Resources.Extensions.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\System.Resources.Extensions.6.0.0\lib\net461\System.Resources.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Runtime</Name>
+      <AssemblyName>System.Runtime.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Runtime.CompilerServices.Unsafe</Name>
+      <AssemblyName>System.Runtime.CompilerServices.Unsafe.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security">
+      <Name>System.Security</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.Security.dll</AssemblyName>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.Windows.Forms.dll</AssemblyName>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyCheck.prg" />
     <Compile Include="MainForm.Designer.prg">
       <DependentUpon>MainForm.prg</DependentUpon>
     </Compile>
@@ -93,6 +207,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="App.config" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="EUREKAFach.xsproj" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
