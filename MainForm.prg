@@ -19,50 +19,26 @@ USING DevExpress.XtraGrid.Views.Grid
 BEGIN NAMESPACE EFReferenceChecker
 
 PUBLIC PARTIAL CLASS MainForm INHERIT Form
-    PRIVATE binPath AS STRING
-    PRIVATE projFile AS STRING
-    PRIVATE binAssemblies AS List<FileInfo>
+    INTERNAL binPath AS STRING
+    INTERNAL projFile AS STRING
+    INTERNAL binAssemblies AS List<FileInfo>
     PRIVATE missingAssemblies AS List<STRING>
     PRIVATE warningCount AS INT
-    
+
     PRIVATE ns := XNamespace.Get("http://schemas.microsoft.com/developer/msbuild/2003") AS XNamespace
-    
-    /// <summary>
-    /// Einlesen der Config-Datei-Einträge
-    /// </summary>    
-    PRIVATE METHOD ReadConfigData() AS VOID
-        TRY
-            SELF:binPath := ConfigurationManager.AppSettings["binPath"]
-            SELF:projFile := ConfigurationManager.AppSettings["projFile"]
-            SELF:lblBinPath:Text := SELF:binPath
-            IF Directory.Exists(SELF:binPath)
-                ReadBinFolder()
-            ENDIF
-            UpdateStatus("*** Daten aus Config-Datei eingelesen")
-        CATCH ex AS SystemException
-            UpdateStatus(i"!!! Fehler beim Einlesen der Config-Datei")
-        END TRY
-        
+
         /// <summary>
         ///  Konstruktor
         /// </summary>
         PUBLIC CONSTRUCTOR() STRICT
             InitializeComponent()
-            ReadConfigData()
+            SELF:binAssemblies := List<FileInfo>{}
             Self:gridView1:OptionsView:ShowGroupPanel := False
+            EFHelper.ReadConfigData(SELF)
             RETURN
         END CONSTRUCTOR
-        
-        /// <summary>
-        ///  Dll-Dateien aus dem bin-Verzeichnis einlesen
-        /// </summary>
-        METHOD ReadBinFolder() AS VOID
-            SELF:binAssemblies := List<FileInfo>{}
-            FOREACH VAR dllFile IN DirectoryInfo{SELF:binPath}:GetFiles("*.dll")
-                SELF:binAssemblies:Add(dllFile)
-            NEXT
-        END METHOD
-        
+
+
         /// <summary>
         /// Statuslistbox aktualisieren
         /// </summary>
@@ -71,7 +47,7 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
             SELF:lsbStatus:Items:Add(msg)
             SELF:lsbStatus:SelectedIndex := SELF:lsbStatus:Items:Count - 1
         END METHOD
-        
+
         /// <summary>
         /// Bin-Verzeichnis auswählen
         /// </summary>
@@ -83,11 +59,11 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
             IF fbd:ShowDialog() == DialogResult.OK
                 binPath := fbd:SelectedPath
                 SELF:lblBinPath:Text := binPath
-                ReadBinFolder()
+                EFHelper.ReadBinFolder(binPath, self:binAssemblies)
             END IF
             RETURN
         END METHOD
-        
+
         /// <summary>
         /// Analyse starten
         /// </summary>
@@ -96,6 +72,8 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
         PRIVATE METHOD bntStart_Click(sender AS OBJECT, e AS EventArgs) AS VOID STRICT
             LOCAL xDoc AS XDocument
             LOCAL refCounter AS INT
+            LOCAL assVersion1 AS STRING
+            LOCAL assVersion2 AS STRING
             BEGIN USING VAR st := Assembly.GetExecutingAssembly():GetManifestResourceStream("EFReferenceChecker." + projFile)
                 xDoc := XDocument.Load(st)
             END USING
@@ -104,6 +82,7 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
             SELF:missingAssemblies := List<STRING>{}
             SELF:progressBar1:Value := 0
             SELF:progressBar1:Maximum := references:Count()
+            UpdateStatus(i"*** Analysiere {Self:projFile}")
             FOREACH VAR reference IN references
                 SELF:progressBar1:Value++
                 System.Threading.Thread.Sleep(50)
@@ -111,21 +90,24 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
                 IF reference:Element(ns + "AssemblyName") != NULL
                     VAR check := AssemblyCheck{}{Id := ++refCounter}
                     VAR include := reference:Attribute("Include"):Value
-                    VAR assVersion1 := Regex.Match(include, "Version=([\d.]+)"):Groups[1]:Value
+                    assVersion1 := Regex.Match(include, "Version=([\d.]+)"):Groups[1]:Value
                     VAR assemblyName := reference:Element(ns + "AssemblyName"):Value
                     check:Name := assemblyName
                     check:VersionNeeded := assVersion1
                     // Aktuelle Version abfragen
                     VAR dllFile := SELF:binAssemblies:Where({ fi => fi:Name == assemblyName}):FirstOrDefault()
                     IF dllFile != NULL
-                        VAR assVersion2 := FileVersionInfo.GetVersionInfo(dllFile:FullName):FileVersion:ToString()
+                        assVersion2 := FileVersionInfo.GetVersionInfo(dllFile:FullName):FileVersion:ToString()
                         check:VersionDetected := assVersion2
                         IF String.Compare(assVersion1, assVersion2) != 0
                             SELF:warningCount++
                         END IF
-                    ELSE
-                        missingAssemblies:Add(assemblyName)
-                    ENDIF
+                        ELSE
+                            // Ist die Datei im GAC
+                            VAR result := EFHelper.CheckGACForFile(assemblyName, assVersion2)
+                            assemblyName += IIF(result, "(Im GAC)", "")
+                            missingAssemblies:Add(assemblyName)
+                        ENDIF
                     checkList:Add(check)
                 END IF
             NEXT
@@ -142,7 +124,7 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
             SELF:gridView1:RowStyle += RowStyleEventHandler{RowStyle}
             RETURN
         END METHOD
-        
+
         /// <summary>
         /// Zellenformatierung anwenden
         /// </summary>

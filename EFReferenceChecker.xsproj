@@ -133,7 +133,8 @@
       <Name>System.IO</Name>
       <AssemblyName>System.IO.dll</AssemblyName>
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <HintPath>
+      </HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
@@ -166,7 +167,8 @@
       <Name>System.Runtime</Name>
       <AssemblyName>System.Runtime.dll</AssemblyName>
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <HintPath>
+      </HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -192,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyCheck.prg" />
+    <Compile Include="EFHelper.prg" />
     <Compile Include="MainForm.Designer.prg">
       <DependentUpon>MainForm.prg</DependentUpon>
     </Compile>
