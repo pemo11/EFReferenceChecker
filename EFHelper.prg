@@ -30,7 +30,7 @@ BEGIN NAMESPACE EFReferenceChecker
         /// <summary>
         /// Einlesen der Config-Datei-Einträge
         /// </summary>    
-        INTERNAL STATIC METHOD ReadConfigData(Frm AS MainForm) AS VOID
+        PUBLIC STATIC METHOD ReadConfigData(Frm AS MainForm) AS VOID
             TRY
                 Frm:binPath := ConfigurationManager.AppSettings["binPath"]
                 Frm:projFile := ConfigurationManager.AppSettings["projFile"]
@@ -48,7 +48,7 @@ BEGIN NAMESPACE EFReferenceChecker
         /// <summary>
         /// Prüfen, ob sich eine Dll im GAC befindet
         /// </summary>    
-        INTERNAL STATIC METHOD CheckGACForFile(AssemblyName AS STRING, AssemblyVersion AS STRING, Frm AS MainForm) AS LOGIC
+        PUBLIC STATIC METHOD CheckGACForFile(AssemblyName AS STRING, AssemblyVersion AS STRING, Frm AS MainForm) AS LOGIC
             LOCAL result AS LOGIC
             TRY
                 VAR gacPath := "C:\Windows\assembly\GAC_MSIL"
@@ -68,21 +68,33 @@ BEGIN NAMESPACE EFReferenceChecker
         /// <summary>
         /// Holt alle Reference-Elemente aus der Proj-Datei
         /// </summary>    
-        INTERNAL STATIC METHOD GetReferenceElements(projFile AS STRING, Frm AS MainForm) AS List<ReferenceElement>
+        PUBLIC STATIC METHOD GetReferenceElements(projFile AS STRING, Frm AS MainForm, UseResource := TRUE AS LOGIC) AS List<ReferenceElement>
             LOCAL xDoc AS XDocument
             LOCAL ns := XNamespace.Get("http://schemas.microsoft.com/developer/msbuild/2003") AS XNamespace
             VAR referenceList := List<ReferenceElement>{}
             TRY
-                BEGIN USING VAR st := Assembly.GetExecutingAssembly():GetManifestResourceStream("EFReferenceChecker." + projFile)
-                    xDoc := XDocument.Load(st)
-                END USING
+                // Damit Tests möglich sind mit einer beliebigen Proj-Datei
+                IF UseResource
+                    BEGIN USING VAR st := Assembly.GetExecutingAssembly():GetManifestResourceStream("EFReferenceChecker." + projFile)
+                        xDoc := XDocument.Load(st)
+                    END USING
+                ELSE
+                    xDoc := XDocument.Load(projFile)
+                EndIf
                 VAR references := xDoc:Descendants(ns + "Reference")
-                Frm:missingAssemblies := List<STRING>{}
-                Frm:progressBar1:Value := 0
-                Frm:progressBar1:Maximum := references:Count()
-                Frm:UpdateStatus(i"*** Analysiere {projFile}")
+                // Damit Testen möglich ist (nicht optimal)
+                IF Frm != NULL
+                    Frm:missingAssemblies := List<STRING>{}
+                    Frm:progressBar1:Value := 0
+                    Frm:progressBar1:Maximum := references:Count()
+                    Frm:UpdateStatus(i"*** Analysiere {projFile}")
+                ENDIF
                 FOREACH VAR reference IN references
-                    Frm:progressBar1:Value++
+                    // Geht nicht
+                    // Frm?:progressBar1:Value++
+                    IF Frm != NULL
+                        Frm:progressBar1:Value++
+                    ENDIF
                     System.Threading.Thread.Sleep(50)
                     Application.DoEvents()
                     IF reference:Element(ns + "AssemblyName") != NULL
@@ -94,7 +106,7 @@ BEGIN NAMESPACE EFReferenceChecker
                     END IF
                 NEXT
             CATCH ex AS SystemException
-                Frm:UpdateStatus(i"!!! Fehler in GetReferenceElements ({ex})")
+                Frm?:UpdateStatus(i"!!! Fehler in GetReferenceElements ({ex})")
             END TRY
             RETURN referenceList
 

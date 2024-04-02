@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.2604.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+      <Name>Devart.Data</Name>
+      <AssemblyName>Devart.Data.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Devart.Data.PostgreSql, Version=7.20.1812.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+      <Name>Devart.Data.PostgreSql</Name>
+      <AssemblyName>Devart.Data.PostgreSql.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v23.2.Core, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Charts.v23.2.Core</Name>
+      <AssemblyName>DevExpress.Charts.v23.2.Core.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v23.2, Version=23.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Name>DevExpress.Data.Desktop.v23.2</Name>
+      <AssemblyName>DevExpress.Data.Desktop.v23.2.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
