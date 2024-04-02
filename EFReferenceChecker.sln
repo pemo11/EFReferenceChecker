@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "EFReferenceChecker", "EFReferenceChecker.xsproj", "{A55D81FB-BFFD-4755-AE10-4843C45B1B99}"
 EndProject
+Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "EFReferenceCheckerTest", "EFReferenceCheckerTest\EFReferenceCheckerTest.xsproj", "{0F108CF4-8F86-4594-8588-7BACF7A5FDB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A55D81FB-BFFD-4755-AE10-4843C45B1B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A55D81FB-BFFD-4755-AE10-4843C45B1B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A55D81FB-BFFD-4755-AE10-4843C45B1B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F108CF4-8F86-4594-8588-7BACF7A5FDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F108CF4-8F86-4594-8588-7BACF7A5FDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F108CF4-8F86-4594-8588-7BACF7A5FDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F108CF4-8F86-4594-8588-7BACF7A5FDB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

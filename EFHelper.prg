@@ -5,13 +5,18 @@ USING System
 USING System.Collections.Generic
 USING System.Configuration
 USING System.IO
+USING System.Linq
+USING System.Reflection
+USING System.Xml.Linq
+USING System.Text.RegularExpressions
+USING System.Windows.Forms
 
 BEGIN NAMESPACE EFReferenceChecker
 
 	/// <summary>
     /// The EFHeloer class
     /// </summary>
-STATIC CLASS EFHelper
+    STATIC CLASS EFHelper
 
         /// <summary>
         ///  Dll-Dateien aus dem bin-Verzeichnis einlesen
@@ -35,7 +40,7 @@ STATIC CLASS EFHelper
                 ENDIF
                 Frm:UpdateStatus("*** Daten aus Config-Datei eingelesen")
             CATCH ex AS SystemException
-                Frm:UpdateStatus(i"!!! Fehler beim Einlesen der Config-Datei")
+                Frm:UpdateStatus(i"!!! Fehler beim Einlesen der Config-Datei ({ex}")
             END TRY
         END METHOD
         
@@ -43,17 +48,55 @@ STATIC CLASS EFHelper
         /// <summary>
         /// Prüfen, ob sich eine Dll im GAC befindet
         /// </summary>    
-        INTERNAL STATIC METHOD CheckGACForFile(AssemblyName AS STRING, AssemblyVersion AS STRING) AS LOGIC
+        INTERNAL STATIC METHOD CheckGACForFile(AssemblyName AS STRING, AssemblyVersion AS STRING, Frm AS MainForm) AS LOGIC
+            LOCAL result AS LOGIC
+            TRY
                 VAR gacPath := "C:\Windows\assembly\GAC_MSIL"
                 VAR dllDirpath := Path.Combine(gacPath, Path.GetFileNameWithoutExtension(AssemblyName))
                 IF Directory.Exists(dllDirpath)
                     VAR dllDirname := DirectoryInfo{dllDirpath}:GetDirectories()[1].Name
-                    RETURN dllDirname:Split(c"_")[1] == AssemblyVersion
+                    result := dllDirname:Split(c"_")[1] == AssemblyVersion
                 ELSE
-                    RETURN FALSE
+                    result := FALSE
                 END IF
+            CATCH ex AS SystemException
+                Frm:UpdateStatus(i"!!! Fehler in CheckGACForFile ({ex})")
+            END TRY
+            RETURN result
             END METHOD
-        
+            
+        /// <summary>
+        /// Holt alle Reference-Elemente aus der Proj-Datei
+        /// </summary>    
+        INTERNAL STATIC METHOD GetReferenceElements(projFile AS STRING, Frm AS MainForm) AS List<ReferenceElement>
+            LOCAL xDoc AS XDocument
+            LOCAL ns := XNamespace.Get("http://schemas.microsoft.com/developer/msbuild/2003") AS XNamespace
+            VAR referenceList := List<ReferenceElement>{}
+            TRY
+                BEGIN USING VAR st := Assembly.GetExecutingAssembly():GetManifestResourceStream("EFReferenceChecker." + projFile)
+                    xDoc := XDocument.Load(st)
+                END USING
+                VAR references := xDoc:Descendants(ns + "Reference")
+                Frm:missingAssemblies := List<STRING>{}
+                Frm:progressBar1:Value := 0
+                Frm:progressBar1:Maximum := references:Count()
+                Frm:UpdateStatus(i"*** Analysiere {projFile}")
+                FOREACH VAR reference IN references
+                    Frm:progressBar1:Value++
+                    System.Threading.Thread.Sleep(50)
+                    Application.DoEvents()
+                    IF reference:Element(ns + "AssemblyName") != NULL
+                        VAR refElement := ReferenceElement{}
+                        VAR include := reference:Attribute("Include"):Value
+                        refElement:AssemblyName := reference:Element(ns + "AssemblyName"):Value
+                        refElement:Version := Regex.Match(include, "Version=([\d.]+)"):Groups[1]:Value
+                        referenceList:Add(refElement)
+                    END IF
+                NEXT
+            CATCH ex AS SystemException
+                Frm:UpdateStatus(i"!!! Fehler in GetReferenceElements ({ex})")
+            END TRY
+            RETURN referenceList
 
     END CLASS
 

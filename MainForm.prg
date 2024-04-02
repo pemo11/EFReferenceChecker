@@ -18,14 +18,12 @@ USING DevExpress.XtraGrid.Views.Grid
 
 BEGIN NAMESPACE EFReferenceChecker
 
-PUBLIC PARTIAL CLASS MainForm INHERIT Form
-    INTERNAL binPath AS STRING
-    INTERNAL projFile AS STRING
-    INTERNAL binAssemblies AS List<FileInfo>
-    PRIVATE missingAssemblies AS List<STRING>
-    PRIVATE warningCount AS INT
-
-    PRIVATE ns := XNamespace.Get("http://schemas.microsoft.com/developer/msbuild/2003") AS XNamespace
+    PUBLIC PARTIAL CLASS MainForm INHERIT Form
+        INTERNAL binPath AS STRING
+        INTERNAL projFile AS STRING
+        INTERNAL binAssemblies AS List<FileInfo>
+        INTERNAL missingAssemblies AS List<STRING>
+        INTERNAL warningCount AS INT
 
         /// <summary>
         ///  Konstruktor
@@ -66,9 +64,12 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
 
         /// <summary>
         /// Analyse starten
+        /// Gutes Beispiel für einen nicht testbaren Eventhandler
+        /// So hat man es früher gemacht;)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /*
         PRIVATE METHOD bntStart_Click(sender AS OBJECT, e AS EventArgs) AS VOID STRICT
             LOCAL xDoc AS XDocument
             LOCAL refCounter AS INT
@@ -103,7 +104,7 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
                             SELF:warningCount++
                         END IF
                         ELSE
-                            // Ist die Datei im GAC
+                            // Ist die Datei im GAC?
                             VAR result := EFHelper.CheckGACForFile(assemblyName, assVersion2)
                             assemblyName += IIF(result, "(Im GAC)", "")
                             missingAssemblies:Add(assemblyName)
@@ -112,6 +113,55 @@ PUBLIC PARTIAL CLASS MainForm INHERIT Form
                 END IF
             NEXT
             UpdateStatus(i"*** {refCounter} Assemblies in {SELF:projFile} gecheckt")
+            UpdateStatus(i"*** Fehlende Dlls in {Self:binPath} = {Self:missingAssemblies:Count}")
+            FOREACH VAR missingFile IN SELF:missingAssemblies
+                UpdateStatus(i">>> {missingFile}")
+            NEXT
+            UpdateStatus(i"*** Warnungen = {warningCount}")
+            SELF:progressBar1:Value := 0
+            SELF:grdAssemblies:DataSource := checkList
+            SELF:gridView1:Columns["Id"]:BestFit()
+            SELF:gridView1:Columns["Name"]:Width := 240
+            SELF:gridView1:RowStyle += RowStyleEventHandler{RowStyle}
+            RETURN
+        END METHOD
+        */
+
+        /// <summary>
+        /// Analyse starten
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        PRIVATE METHOD bntStart_Click(sender AS OBJECT, e AS EventArgs) AS VOID STRICT
+            LOCAL assVersion1 AS STRING
+            LOCAL assVersion2 AS STRING
+            LOCAL refCounter AS INT
+            SELF:missingAssemblies := List<STRING>{}
+            SELF:warningCount := 0
+            VAR references := EFHelper.GetReferenceElements(SELF:projFile, SELF)
+            VAR checkList := List<AssemblyCheck>{}
+            FOREACH VAR reference IN references
+                VAR check := AssemblyCheck{}{Id := ++refCounter}
+                check:Name := reference:AssemblyName
+                // Aktuelle Version abfragen
+                VAR dllFile := SELF:binAssemblies:Where({ fi => fi:Name == reference:AssemblyName}):FirstOrDefault()
+                IF dllFile != NULL
+                    assVersion1 := reference:Version
+                    assVersion2 := FileVersionInfo.GetVersionInfo(dllFile:FullName):FileVersion:ToString()
+                    check:VersionNeeded := assVersion1
+                    check:VersionDetected := assVersion2
+                    IF String.Compare(assVersion1, assVersion2) != 0
+                        SELF:warningCount++
+                    END IF
+                ELSE
+                    // Ist die Datei im GAC?
+                    VAR result := EFHelper.CheckGACForFile(reference:AssemblyName, assVersion2, SELF)
+                    missingAssemblies:Add(check:Name + IIF(result, " (Im GAC)", " (Nicht im GAC)!"))
+                ENDIF
+                checkList:Add(check)
+            NEXT
+            // ??? Warum checkList.Count und in der nächsten Zeile ist :Count erlaubt ???
+            UpdateStatus(i"*** {checkList.Count} Assemblies in {SELF:projFile} gecheckt")
             UpdateStatus(i"*** Fehlende Dlls in {Self:binPath} = {Self:missingAssemblies:Count}")
             FOREACH VAR missingFile IN SELF:missingAssemblies
                 UpdateStatus(i">>> {missingFile}")
