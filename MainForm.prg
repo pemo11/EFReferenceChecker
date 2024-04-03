@@ -1,4 +1,5 @@
 ﻿// File: MainForm.prg
+
 USING System
 USING System.Collections.Generic
 USING System.Configuration
@@ -139,33 +140,47 @@ BEGIN NAMESPACE EFReferenceChecker
             LOCAL assVersion1 AS STRING
             LOCAL assVersion2 AS STRING
             LOCAL refCounter AS INT
-            LOCAL result AS LOGIC
             SELF:missingAssemblies := List<STRING>{}
             SELF:warningCount := 0
             VAR references := EFHelper.GetReferenceElements(SELF:projFile, SELF)
             VAR checkList := List<AssemblyCheck>{}
+            // Alle reference-Elemente durchgehen
             FOREACH VAR reference IN references
                 VAR check := AssemblyCheck{}{Id := ++refCounter}
                 check:Name := reference:AssemblyName
                 // Aktuelle Version abfragen
                 VAR dllFile := SELF:binAssemblies:Where({ fi => fi:Name == reference:AssemblyName}):FirstOrDefault()
+                // Liegt dll-Datei im bin-Verzeichnis?
                 IF dllFile != NULL
+                    // Location speichern
+                    check:Location := "Bin"
+                    // Versionsnummern speichern
                     assVersion1 := reference:Version
                     assVersion2 := FileVersionInfo.GetVersionInfo(dllFile:FullName):FileVersion:ToString()
                     check:VersionNeeded := assVersion1
                     check:VersionDetected := assVersion2
+                    // Sind  beide Versionen ungleich?
                     IF String.Compare(assVersion1, assVersion2) != 0
                         SELF:warningCount++
                     END IF
                 ELSE
-                    VAR refAnnotation := " ("
-                    result := FALSE
-                    // Ist die Datei im ReferencedAssemblies-Verzeichnis?
-                    result := result || EFHelper.CheckRefAssembly(SELF:netVersion, SELF:x86, reference:AssemblyName, assVersion2, SELF)
-                    refAnnotation += i"Ref-Verzeichnis={result}"
-                    result := result || EFHelper.CheckGACForFile(reference:AssemblyName, assVersion2, SELF)
-                    refAnnotation += i",GAC={result})"
-                    missingAssemblies:Add(check:Name + refAnnotation)
+                    VAR result := EFHelper.CheckRefAssembly(SELF:netVersion, SELF:x86, reference:AssemblyName, SELF)
+                    IF result != ""
+                        check:Location := "Ref"
+                        check:VersionNeeded := reference:Version
+                        check:VersionDetected := result
+                    END IF
+                    IF result == ""
+                        result := EFHelper.CheckGACForFile(reference:AssemblyName, SELF)
+                        IF result != ""
+                            check:Location := "GAC"
+                            check:VersionNeeded := reference:Version
+                            check:VersionDetected := result
+                        ELSE
+                            check:Location := "Missing"
+                            missingAssemblies:Add(check:Name)
+                        END IF
+                    END IF
                 ENDIF
                 checkList:Add(check)
             NEXT
@@ -197,6 +212,9 @@ BEGIN NAMESPACE EFReferenceChecker
                 IF String.Compare(version1, version2) != 0
                     e:Appearance:BackColor := Color.FromName("Orange")
                 END IF
+                IF view:GetRowCellDisplayText(e:RowHandle, view:Columns["Location"]) == "Missing"
+                    e:Appearance:BackColor := Color.FromName("Red")
+                ENDIF
             END IF
     END CLASS
 
