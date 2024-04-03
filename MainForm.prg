@@ -21,6 +21,8 @@ BEGIN NAMESPACE EFReferenceChecker
     PUBLIC PARTIAL CLASS MainForm INHERIT Form
         INTERNAL binPath AS STRING
         INTERNAL projFile AS STRING
+        INTERNAL netVersion AS STRING
+        INTERNAL x86 AS LOGIC
         INTERNAL binAssemblies AS List<FileInfo>
         INTERNAL missingAssemblies AS List<STRING>
         INTERNAL warningCount AS INT
@@ -44,6 +46,7 @@ BEGIN NAMESPACE EFReferenceChecker
         METHOD UpdateStatus(msg AS STRING) AS VOID
             SELF:lsbStatus:Items:Add(msg)
             SELF:lsbStatus:SelectedIndex := SELF:lsbStatus:Items:Count - 1
+            LogHelper.LogInfo(msg)
         END METHOD
 
         /// <summary>
@@ -136,6 +139,7 @@ BEGIN NAMESPACE EFReferenceChecker
             LOCAL assVersion1 AS STRING
             LOCAL assVersion2 AS STRING
             LOCAL refCounter AS INT
+            LOCAL result AS LOGIC
             SELF:missingAssemblies := List<STRING>{}
             SELF:warningCount := 0
             VAR references := EFHelper.GetReferenceElements(SELF:projFile, SELF)
@@ -154,9 +158,14 @@ BEGIN NAMESPACE EFReferenceChecker
                         SELF:warningCount++
                     END IF
                 ELSE
-                    // Ist die Datei im GAC?
-                    VAR result := EFHelper.CheckGACForFile(reference:AssemblyName, assVersion2, SELF)
-                    missingAssemblies:Add(check:Name + IIF(result, " (Im GAC)", " (Nicht im GAC)!"))
+                    VAR refAnnotation := " ("
+                    result := FALSE
+                    // Ist die Datei im ReferencedAssemblies-Verzeichnis?
+                    result := result || EFHelper.CheckRefAssembly(SELF:netVersion, SELF:x86, reference:AssemblyName, assVersion2, SELF)
+                    refAnnotation += i"Ref-Verzeichnis={result}"
+                    result := result || EFHelper.CheckGACForFile(reference:AssemblyName, assVersion2, SELF)
+                    refAnnotation += i",GAC={result})"
+                    missingAssemblies:Add(check:Name + refAnnotation)
                 ENDIF
                 checkList:Add(check)
             NEXT

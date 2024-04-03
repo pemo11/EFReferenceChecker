@@ -12,9 +12,11 @@
     <Allowdot>True</Allowdot>
     <NamedArgs>True</NamedArgs>
     <OutputName>EFReferenceChecker</OutputName>
+    <StartupObject />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -97,6 +99,13 @@
       <AssemblyName>Microsoft.CSharp.dll</AssemblyName>
     </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c">
+      <Name>NLog</Name>
+      <AssemblyName>NLog.dll</AssemblyName>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>packages\NLog.5.2.8\lib\net46\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="Ookii.Dialogs.WinForms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158">
       <Name>Ookii.Dialogs.WinForms</Name>
       <AssemblyName>Ookii.Dialogs.WinForms.dll</AssemblyName>
@@ -136,6 +145,11 @@
       <HintPath>
       </HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <Name>System.IO.Compression</Name>
+      <SpecificVersion>False</SpecificVersion>
+      <AssemblyName>System.IO.Compression.dll</AssemblyName>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
       <Name>System.Memory</Name>
@@ -195,6 +209,7 @@
   <ItemGroup>
     <Compile Include="AssemblyCheck.prg" />
     <Compile Include="EFHelper.prg" />
+    <Compile Include="LogHelper.prg" />
     <Compile Include="MainForm.Designer.prg">
       <DependentUpon>MainForm.prg</DependentUpon>
     </Compile>
@@ -213,6 +228,9 @@
     <None Include="App.config" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="EUREKAFach.xsproj" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,6 +10,7 @@ BEGIN NAMESPACE EFReferenceChecker
 	CLASS ReferenceElement
         INTERNAL PROPERTY AssemblyName AS STRING AUTO
         INTERNAL PROPERTY Version AS STRING AUTO
+        INTERNAL PROPERTY SpecificVersion AS LOGIC AUTO
     END CLASS
 
 END NAMESPACE // EFReferenceChecker
