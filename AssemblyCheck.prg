@@ -11,7 +11,7 @@ BEGIN NAMESPACE EFReferenceChecker
         PROPERTY Id AS INT AUTO
         PROPERTY Name AS STRING AUTO
         PROPERTY VersionNeeded AS STRING AUTO
-        PROPERTY VersionDetected AS STRING AUTO
+        PROPERTY VersionFound AS STRING AUTO
         PROPERTY Location AS STRING AUTO
 	END CLASS
 

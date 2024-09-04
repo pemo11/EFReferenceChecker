@@ -61,7 +61,8 @@ BEGIN NAMESPACE EFReferenceChecker
             IF fbd:ShowDialog() == DialogResult.OK
                 binPath := fbd:SelectedPath
                 SELF:lblBinPath:Text := binPath
-                EFHelper.ReadBinFolder(binPath, self:binAssemblies)
+                EFHelper.ReadBinFolder(binPath, SELF:binAssemblies)
+                Messagebox.Show("Alles klaro!")
             END IF
             RETURN
         END METHOD
@@ -158,7 +159,7 @@ BEGIN NAMESPACE EFReferenceChecker
                     assVersion1 := reference:Version
                     assVersion2 := FileVersionInfo.GetVersionInfo(dllFile:FullName):FileVersion:ToString()
                     check:VersionNeeded := assVersion1
-                    check:VersionDetected := assVersion2
+                    check:VersionFound := assVersion2
                     // Sind  beide Versionen ungleich?
                     IF String.Compare(assVersion1, assVersion2) != 0
                         SELF:warningCount++
@@ -168,14 +169,14 @@ BEGIN NAMESPACE EFReferenceChecker
                     IF result != ""
                         check:Location := "Ref"
                         check:VersionNeeded := reference:Version
-                        check:VersionDetected := result
+                        check:VersionFound := result
                     END IF
                     IF result == ""
                         result := EFHelper.CheckGACForFile(reference:AssemblyName, SELF)
                         IF result != ""
                             check:Location := "GAC"
                             check:VersionNeeded := reference:Version
-                            check:VersionDetected := result
+                            check:VersionFound := result
                         ELSE
                             check:Location := "Missing"
                             missingAssemblies:Add(check:Name)
@@ -196,6 +197,13 @@ BEGIN NAMESPACE EFReferenceChecker
             SELF:gridView1:Columns["Id"]:BestFit()
             SELF:gridView1:Columns["Name"]:Width := 240
             SELF:gridView1:RowStyle += RowStyleEventHandler{RowStyle}
+            VAR xmlPath := Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), String.Format("AssemblyCheck_{0:dd}_{0:mm}_{0:yy}.xml", DateTime.Now))
+            IF XMLHelper.WriteReport(checkList, xmlPath)
+                UpdateStatus(i"*** XML-Report {xmlPath} geschrieben")
+            ELSE
+                UpdateStatus(i">>> Fehler beim Schreiben von {xmlPath} geschrieben")
+            ENDIF
+
             RETURN
         END METHOD
 
@@ -208,7 +216,7 @@ BEGIN NAMESPACE EFReferenceChecker
             VAR view := (GridView)sender
             IF e:RowHandle > 0
                 VAR version1 := view:GetRowCellDisplayText(e:RowHandle, view:Columns["VersionNeeded"])
-                VAR version2 := view:GetRowCellDisplayText(e:RowHandle, view:Columns["VersionDetected"])
+                VAR version2 := view:GetRowCellDisplayText(e:RowHandle, view:Columns["VersionFound"])
                 IF String.Compare(version1, version2) != 0
                     e:Appearance:BackColor := Color.FromName("Orange")
                 END IF

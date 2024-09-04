@@ -221,6 +221,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.prg" />
     <Compile Include="ReferenceElement.prg" />
+    <Compile Include="XMLHelper.prg" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
